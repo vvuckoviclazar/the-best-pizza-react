@@ -1,0 +1,137 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 6.25%;
+}
+
+#root {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* HEADER */
+
+.fast-pizza-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20rem;
+  padding-right: 20rem;
+  background-color: rgb(255, 204, 0);
+  padding-top: 19rem;
+  padding-bottom: 19rem;
+  margin-bottom: 70rem;
+}
+
+.fast-pizza-h1 {
+  font-size: 20rem;
+  font-weight: 400;
+  letter-spacing: 2rem;
+}
+
+.search-order-input {
+  border: none;
+  border-radius: 15rem;
+  font-size: 17rem;
+  padding: 7rem 40rem 7rem 10rem;
+  background-color: rgb(255, 255, 189);
+  transition: padding 0.3s ease;
+}
+
+.search-order-input:focus {
+  padding-right: 70rem;
+  outline: 2rem solid rgba(160, 160, 160, 0.349);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.search-order-input::placeholder {
+  color: rgb(158, 158, 158);
+}
+
+.redux-value-h3 {
+  font-size: 15rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* START ORDER PAGE */
+
+.the-best-h1 {
+  text-align: center;
+  font-size: 30rem;
+  letter-spacing: 1rem;
+  margin-bottom: 5rem;
+}
+
+.straight-h1 {
+  text-align: center;
+  font-size: 30rem;
+  color: rgb(247, 193, 0);
+  margin-bottom: 40rem;
+}
+
+.welcome-p {
+  text-align: center;
+  color: rgb(115, 115, 115);
+  font-size: 17rem;
+  margin-bottom: 15rem;
+}
+
+.start-order-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.start-order-input {
+  padding: 15rem 5rem 15rem 15rem;
+  border-radius: 30rem;
+  font-size: 18rem;
+  width: 270rem;
+  border: 1rem solid rgb(224, 224, 224);
+  transition: outline 0.3s ease;
+  margin-bottom: 20rem;
+}
+
+.start-order-input::placeholder {
+  color: rgb(184, 184, 184);
+}
+
+.start-order-input:focus {
+  outline: rgb(255, 208, 0) 3rem solid;
+}
+
+.start-ordering-btn {
+  font-size: 15rem;
+  font-weight: 600;
+  background-color: rgb(255, 204, 0);
+  padding-top: 20rem;
+  padding-bottom: 20rem;
+  padding-left: 30rem;
+  padding-right: 30rem;
+  border-radius: 50rem;
+  border: none;
+  color: rgb(53, 53, 53);
+  transition: background 0.3s ease;
+}
+
+.start-ordering-btn:hover {
+  cursor: pointer;
+  background-color: rgb(255, 221, 0);
+}
+
+.h1-list {
+  font-size: 330rem;
+  text-align: center;
+  margin-top: 50rem;
+}
