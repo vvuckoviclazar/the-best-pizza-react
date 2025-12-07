@@ -20,6 +20,13 @@ a {
 
 /* HEADER */
 
+.loading {
+  font-size: 150rem;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 200rem;
+}
+
 .fast-pizza-header {
   display: flex;
   align-items: center;
@@ -29,7 +36,6 @@ a {
   background-color: rgb(255, 204, 0);
   padding-top: 19rem;
   padding-bottom: 19rem;
-  margin-bottom: 70rem;
 }
 
 .fast-pizza-h1 {
@@ -70,6 +76,7 @@ a {
   font-size: 30rem;
   letter-spacing: 1rem;
   margin-bottom: 5rem;
+  margin-top: 70rem;
 }
 
 .straight-h1 {
@@ -134,4 +141,142 @@ a {
   font-size: 330rem;
   text-align: center;
   margin-top: 50rem;
+}
+
+/* ORDER PAGE */
+
+.pizza-orders-section {
+  display: flex;
+  align-items: center;
+}
+
+.pizzas-ul {
+  list-style-type: none;
+  padding-left: 0rem;
+  margin: 0 auto;
+  width: 50%;
+}
+
+/* PIZZA-LI */
+
+.pizza-li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rem solid rgb(216, 216, 216);
+  padding-bottom: 8rem;
+  padding-top: 8rem;
+  width: 100%;
+}
+
+.img-info-div {
+  display: flex;
+  align-items: center;
+  gap: 15rem;
+}
+
+.pizza-img {
+  width: 100rem;
+}
+
+.pizza-h3 {
+  font-size: 17rem;
+  font-weight: 590;
+  margin-bottom: 3rem;
+}
+
+.ingredients-p {
+  font-size: 14rem;
+  color: gray;
+  font-style: italic;
+  text-transform: capitalize;
+  padding-bottom: 35rem;
+}
+
+.price-p {
+  font-size: 15rem;
+}
+
+.add-to-cart-btn {
+  font-size: 13em;
+  font-weight: 600;
+  border: none;
+  background-color: rgb(255, 204, 0);
+  letter-spacing: 0.5rem;
+  color: rgb(58, 58, 58);
+  padding: 10rem 15rem 10rem 15rem;
+  border-radius: 20rem;
+  transition: background 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  cursor: pointer;
+  background-color: rgb(255, 221, 0);
+}
+
+.gray-img {
+  filter: grayscale(100%);
+  width: 100rem;
+}
+
+.soldOut-p {
+  font-size: 15rem;
+  color: gray;
+}
+
+.cart-info {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(37, 37, 37);
+  padding-left: 20rem;
+  padding-top: 17rem;
+  padding-bottom: 17rem;
+  display: flex;
+  align-items: center;
+  gap: 20rem;
+}
+
+.items-number {
+  font-size: 18rem;
+  color: rgb(224, 224, 224);
+}
+
+.total-price {
+  font-size: 18rem;
+  color: rgb(223, 223, 223);
+}
+
+.increase-btn,
+.decrease-btn {
+  border: none;
+  font-size: 20rem;
+  background-color: rgb(255, 221, 0);
+  border-radius: 20rem;
+  padding: 2rem 10rem 2rem 10rem;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: rgb(255, 221, 0);
+  border: none;
+  border-radius: 20rem;
+  font-size: 15rem;
+  letter-spacing: 0.5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 15rem;
+  padding-right: 15rem;
+  cursor: pointer;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.quantity {
+  font-size: 15rem;
 }
