@@ -57,7 +57,7 @@ function ItemLi({
           )}
         </div>
       </div>
-
+      {isAdded && <p className="price-p margin-p">€{unitPrice}.00</p>}
       {!soldOut && !isAdded && (
         <Btn className="add-to-cart-btn" onClick={onAddToCart}>
           ADD TO CART

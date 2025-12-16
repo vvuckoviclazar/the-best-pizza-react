@@ -1,63 +1,37 @@
 import { useEffect, useState } from "react";
 import ItemLi from "../parts/itemLi.tsx";
-
-type Pizza = {
-  id: number;
-  name: string;
-  imageUrl: string;
-  ingredients: string[];
-  unitPrice: number;
-  soldOut: boolean;
-};
-
-type CartItem = {
-  pizza: Pizza;
-  quantity: number;
-};
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../store";
+import {
+  addItem,
+  increaseItemQuantity,
+  decreaseItemQuantity,
+  deleteItem,
+  type Pizza,
+} from "../features/cartSlice";
 
 export default function OrderPage() {
   const [pizzas, setPizzas] = useState<Pizza[]>([]);
   const [loading, setLoading] = useState(true);
-  const [cart, setCart] = useState<CartItem[]>([]);
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const cart = useSelector((state: RootState) => state.cart.items);
 
   function handleAddToCart(pizza: Pizza) {
-    setCart((prevCart) => {
-      const existing = prevCart.find((item) => item.pizza.id === pizza.id);
-      if (existing) {
-        return prevCart.map((item) =>
-          item.pizza.id === pizza.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      }
-      return [...prevCart, { pizza, quantity: 1 }];
-    });
+    dispatch(addItem(pizza));
   }
 
   function handleIncrease(pizzaId: number) {
-    setCart((prevCart) =>
-      prevCart.map((item) =>
-        item.pizza.id === pizzaId
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      )
-    );
+    dispatch(increaseItemQuantity(pizzaId));
   }
 
   function handleDecrease(pizzaId: number) {
-    setCart((prevCart) =>
-      prevCart
-        .map((item) =>
-          item.pizza.id === pizzaId
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
+    dispatch(decreaseItemQuantity(pizzaId));
   }
 
   function handleDelete(pizzaId: number) {
-    setCart((prevCart) => prevCart.filter((item) => item.pizza.id !== pizzaId));
+    dispatch(deleteItem(pizzaId));
   }
 
   useEffect(() => {
@@ -110,15 +84,6 @@ export default function OrderPage() {
           })}
         </ul>
       </section>
-
-      {cart.length > 0 && (
-        <div className="cart-info">
-          <h2 className="items-number">
-            {cart.reduce((sum, item) => sum + item.quantity, 0)}
-          </h2>
-          <h2 className="total-price">€{totalPrice}.00</h2>
-        </div>
-      )}
     </>
   );
 }

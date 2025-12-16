@@ -130,6 +130,19 @@ a {
   border: none;
   color: rgb(53, 53, 53);
   transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.stored-p {
+  text-transform: uppercase;
+}
+
+.hasName-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .start-ordering-btn:hover {
@@ -166,6 +179,10 @@ a {
   border-bottom: 1rem solid rgb(216, 216, 216);
   padding-bottom: 8rem;
   padding-top: 8rem;
+  width: 100%;
+}
+
+.info-div {
   width: 100%;
 }
 
@@ -233,6 +250,13 @@ a {
   padding-left: 20rem;
   padding-top: 17rem;
   padding-bottom: 17rem;
+  padding-right: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-numbers {
   display: flex;
   align-items: center;
   gap: 20rem;
@@ -252,14 +276,20 @@ a {
 .decrease-btn {
   border: none;
   font-size: 20rem;
-  background-color: rgb(255, 221, 0);
+  background-color: rgb(255, 204, 0);
   border-radius: 20rem;
   padding: 2rem 10rem 2rem 10rem;
   cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.increase-btn:hover,
+.decrease-btn:hover {
+  background-color: rgb(255, 221, 0);
 }
 
 .delete-btn {
-  background-color: rgb(255, 221, 0);
+  background-color: rgb(255, 204, 0);
   border: none;
   border-radius: 20rem;
   font-size: 15rem;
@@ -269,6 +299,11 @@ a {
   padding-left: 15rem;
   padding-right: 15rem;
   cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: rgb(255, 221, 0);
 }
 
 .quantity-controls {
@@ -279,4 +314,159 @@ a {
 
 .quantity {
   font-size: 15rem;
+}
+
+.margin-p {
+  padding-top: 80rem;
+}
+
+.open-cart-btn {
+  background-color: transparent;
+  border: none;
+  color: rgb(224, 224, 224);
+  font-size: 17rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.cart-page-div {
+  margin: 20rem auto;
+  display: flex;
+  align-items: self-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+.back-to-menu {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  background-color: transparent;
+  border: none;
+  font-size: 15rem;
+  color: rgb(0, 140, 255);
+  margin-bottom: 30rem;
+}
+
+.back-to-menu:hover {
+  cursor: pointer;
+  color: rgb(0, 119, 255);
+  border-bottom: 1rem solid rgb(0, 119, 255);
+  padding-bottom: 0rem;
+}
+
+.your-cart-div {
+  display: flex;
+  align-items: center;
+}
+
+.cart-h2 {
+  font-size: 25rem;
+  padding-left: 8rem;
+  font-weight: 590;
+}
+
+.cart-items-ul {
+  padding-left: 0rem;
+  list-style-type: none;
+  width: 100%;
+  padding-top: 30rem;
+}
+
+.order-li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1rem solid rgb(222, 222, 222);
+  padding-bottom: 10rem;
+  margin-bottom: 20rem;
+}
+
+.order-quantity-name,
+.order-increase,
+.order-decrease,
+.order-quantity,
+.order-price {
+  font-size: 17rem;
+}
+
+.order-price {
+  font-weight: bold;
+}
+
+.order-controls {
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+}
+
+.order-increase,
+.order-decrease {
+  border: none;
+  background-color: rgb(255, 204, 0);
+  padding: 7rem 12rem 7rem 12rem;
+  border-radius: 50rem;
+  transition: background 0.3s ease;
+}
+
+.order-delete {
+  font-size: 15rem;
+  font-weight: 590;
+  border: none;
+  border-radius: 50rem;
+  padding: 7rem 15rem 7rem 15rem;
+  background-color: rgb(255, 204, 0);
+  letter-spacing: 1rem;
+  transition: background 0.3s ease;
+}
+
+.order-delete:hover,
+.order-increase:hover,
+.order-decrease:hover {
+  background-color: rgb(255, 221, 0);
+  cursor: pointer;
+}
+
+.order-clear-div {
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+}
+
+.order-pizzas-btn {
+  border: none;
+  font-size: 15rem;
+  font-weight: 590;
+  letter-spacing: 0.7rem;
+  background-color: rgb(255, 204, 0);
+  border-radius: 50rem;
+  padding: 18rem 20rem 18rem 20rem;
+  transition: background 0.3s ease;
+}
+
+.order-pizzas-btn:hover {
+  background-color: rgb(255, 221, 0);
+  cursor: pointer;
+}
+
+.clear-cart-btn {
+  border: 2rem solid rgb(227, 227, 227);
+  font-size: 15rem;
+  font-weight: bold;
+  letter-spacing: 0.7rem;
+  color: rgb(138, 138, 138);
+  background-color: transparent;
+  border-radius: 50rem;
+  padding: 18rem 20rem 18rem 20rem;
+  transition: background 0.3s ease;
+}
+
+.clear-cart-btn:hover {
+  background-color: rgb(227, 227, 227);
+  cursor: pointer;
+  color: rgb(62, 62, 62);
 }

@@ -5,6 +5,7 @@ import App from "./App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import StartPage from "./pages/StartPage";
 import OrderPage from "./pages/OrderPage";
+import CartPage from "./pages/CartPage";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "orders",
         element: <OrderPage />,
+      },
+      {
+        path: "cart",
+        element: <CartPage />,
       },
     ],
   },
