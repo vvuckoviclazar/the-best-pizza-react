@@ -470,3 +470,20 @@ a {
   cursor: pointer;
   color: rgb(62, 62, 62);
 }
+
+/* FINISH ORDER PAGE */
+
+.finish-order-page {
+  margin: 25rem auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 50%;
+}
+
+.ready-h1 {
+  text-align: left;
+  width: 100%;
+  font-size: 20rem;
+  color: rgb(28, 28, 28);
+}

@@ -34,7 +34,9 @@ export default function CartPage() {
         ))}
       </ul>
       <div className="order-clear-div">
-        <Btn className="order-pizzas-btn">ORDER PIZZAS</Btn>
+        <Link to="/finish">
+          <Btn className="order-pizzas-btn">ORDER PIZZAS</Btn>
+        </Link>
         <Btn className="clear-cart-btn">CLEAR CART</Btn>
       </div>
     </div>
