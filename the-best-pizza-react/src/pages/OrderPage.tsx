@@ -9,10 +9,12 @@ import {
   deleteItem,
   type Pizza,
 } from "../features/cartSlice";
+import { setLoading } from "../features/uiSlice";
 
 export default function OrderPage() {
   const [pizzas, setPizzas] = useState<Pizza[]>([]);
-  const [loading, setLoading] = useState(true);
+
+  const loading = useSelector((state: RootState) => state.ui.loading);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -36,6 +38,7 @@ export default function OrderPage() {
 
   useEffect(() => {
     async function fetchPizzas() {
+      dispatch(setLoading(true));
       try {
         const res = await fetch(
           "https://react-fast-pizza-api.onrender.com/api/menu"
@@ -43,7 +46,7 @@ export default function OrderPage() {
         const response = await res.json();
         setPizzas(response.data);
       } finally {
-        setLoading(false);
+        dispatch(setLoading(false));
       }
     }
 

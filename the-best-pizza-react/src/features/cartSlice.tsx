@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-//pogledaj useSelector
-
 export type Pizza = {
   id: number;
   name: string;
