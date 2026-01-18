@@ -4,8 +4,12 @@ import { useSelector } from "react-redux";
 import Btn from "../components/btn.tsx";
 import { GoArrowLeft } from "react-icons/go";
 import OrderLi from "../parts/orderLi";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "../store";
+import { clearCart } from "../features/cartSlice";
 
 export default function CartPage() {
+  const dispatch = useDispatch<AppDispatch>();
   const name = useSelector((state: RootState) => state.user.name);
   const cart = useSelector((state: RootState) => state.cart.items);
 
@@ -37,7 +41,10 @@ export default function CartPage() {
         <Link to="/finish">
           <Btn className="order-pizzas-btn">ORDER PIZZAS</Btn>
         </Link>
-        <Btn className="clear-cart-btn">CLEAR CART</Btn>
+
+        <Btn className="clear-cart-btn" onClick={() => dispatch(clearCart())}>
+          CLEAR CART
+        </Btn>
       </div>
     </div>
   );

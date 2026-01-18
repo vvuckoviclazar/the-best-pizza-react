@@ -6,6 +6,7 @@ type InputProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   type?: string;
   className?: string;
+  checked?: boolean;
 };
 
 export default function Input({
@@ -14,6 +15,7 @@ export default function Input({
   onChange,
   type = "text",
   className,
+  checked,
 }: InputProps) {
   return (
     <input
@@ -22,6 +24,7 @@ export default function Input({
       placeholder={placeholder}
       onChange={onChange}
       className={className}
+      checked={checked}
     />
   );
 }
