@@ -14,6 +14,20 @@ export default function FinishOrderPage() {
   const [address, setAddress] = useState("");
   const [priority, setPriority] = useState(false);
 
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition(async (pos) => {
+      const { latitude, longitude } = pos.coords;
+
+      const res = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
+      );
+
+      const data = await res.json();
+
+      setAddress(data.address.road);
+    });
+  };
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
@@ -88,7 +102,7 @@ export default function FinishOrderPage() {
           onChange={(e) => setAddress(e.target.value)}
         />
 
-        <Btn className="get-btn" type="button">
+        <Btn className="get-btn" type="button" onClick={getLocation}>
           GET POSITION
         </Btn>
       </div>
