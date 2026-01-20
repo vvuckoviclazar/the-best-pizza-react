@@ -5,6 +5,7 @@ import Input from "../components/input";
 import Label from "../components/label";
 import Btn from "../components/btn";
 import { clearCart } from "../features/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function FinishOrderPage() {
   const dispatch = useDispatch<AppDispatch>();
@@ -13,6 +14,7 @@ export default function FinishOrderPage() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [priority, setPriority] = useState(false);
+  const navigate = useNavigate();
 
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition(async (pos) => {
@@ -47,13 +49,21 @@ export default function FinishOrderPage() {
       cart: cartForApi,
     };
 
-    await fetch("https://react-fast-pizza-api.onrender.com/api/order", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newOrder),
-    });
+    const res = await fetch(
+      "https://react-fast-pizza-api.onrender.com/api/order",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newOrder),
+      }
+    );
+
+    const data = await res.json();
+    const orderId = data.data.id;
 
     dispatch(clearCart());
+
+    navigate(`/order/${orderId}`);
 
     setCustomer("");
     setPhone("");
@@ -118,7 +128,7 @@ export default function FinishOrderPage() {
       </div>
 
       <Btn className="order-now-btn" type="submit">
-        ORDER NOW
+        ORDER NOW FOR
       </Btn>
     </form>
   );

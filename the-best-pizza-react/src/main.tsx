@@ -9,6 +9,7 @@ import CartPage from "./pages/CartPage";
 import FinishOrderPage from "./pages/FinishOrderPage.tsx";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import OrderedPizzasPage from "./pages/OrderedPizzasPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "finish",
         element: <FinishOrderPage />,
+      },
+      {
+        path: "order/:orderId",
+        element: <OrderedPizzasPage />,
       },
     ],
   },
