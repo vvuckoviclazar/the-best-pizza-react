@@ -593,3 +593,69 @@ a {
   cursor: pointer;
   background-color: rgb(255, 221, 0);
 }
+
+/* orderID container */
+
+.orderId-container {
+  display: flex;
+  margin: 40rem auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+.orderId-ul {
+  list-style-type: none;
+  padding-left: 0rem;
+  width: 100%;
+}
+
+.id-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 30rem;
+}
+
+.priority-div {
+  display: flex;
+  align-items: center;
+  gap: 20rem;
+}
+
+.orderId-h2 {
+  font-size: 21rem;
+  font-weight: 600;
+}
+
+.preparing-info {
+  font-size: 15rem;
+  font-weight: 590;
+  color: white;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 11rem;
+  padding-right: 11rem;
+  border-radius: 50rem;
+  letter-spacing: 0.5rem;
+}
+
+.priority {
+  background-color: rgb(255, 70, 70);
+}
+
+.preparing {
+  background-color: rgb(0, 206, 0);
+}
+
+.only-h2 {
+  text-align: left;
+  width: 100%;
+  margin-bottom: 25rem;
+  background-color: rgb(226, 226, 226);
+  font-size: 18rem;
+  font-weight: 590;
+  padding: 20rem;
+}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function OrderedPizzasPage() {
   const { orderId } = useParams();
@@ -16,23 +16,26 @@ export default function OrderedPizzasPage() {
     fetchOrder();
   }, [orderId]);
 
-  if (!order) return <h1>Loading...</h1>;
+  if (!order) return <h1>|||</h1>;
 
   return (
-    <div>
-      <h1>Order created ✅</h1>
-      <h2>Order #{order.id}</h2>
+    <div className="orderId-container">
+      <div className="id-div">
+        <h2 className="orderId-h2">Order #{order.id} status</h2>
+        <div className="priority-div">
+          <p className="priority preparing-info">PRIORITY</p>
+          <p className="preparing preparing-info">PREPARING ORDER</p>
+        </div>
+      </div>
+      <h2 className="only-h2">Only 42 minutes left 😃</h2>
 
-      <h3>Your pizzas</h3>
-      <ul>
+      <ul className="orderId-ul">
         {order.cart.map((item: any) => (
           <li key={item.pizzaId}>
             {item.quantity}× {item.name} — €{item.totalPrice}.00
           </li>
         ))}
       </ul>
-
-      <Link to="/orders">Back to menu</Link>
     </div>
   );
 }
