@@ -71,6 +71,14 @@ export default function FinishOrderPage() {
     setPriority(false);
   }
 
+  const pizzasPrice = cart.reduce(
+    (sum, item) => sum + item.pizza.unitPrice * item.quantity,
+    0
+  );
+
+  const priorityPrice = priority ? 5 : 0;
+  const totalPrice = pizzasPrice + priorityPrice;
+
   return (
     <form className="finish-order-page" onSubmit={handleSubmit}>
       <h1 className="ready-h1">Ready to order? Let's go!</h1>
@@ -128,7 +136,7 @@ export default function FinishOrderPage() {
       </div>
 
       <Btn className="order-now-btn" type="submit">
-        ORDER NOW FOR
+        ORDER NOW FOR €{totalPrice}.00
       </Btn>
     </form>
   );

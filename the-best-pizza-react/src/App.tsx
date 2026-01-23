@@ -9,7 +9,7 @@ import { GoArrowRight } from "react-icons/go";
 function App() {
   const name = useSelector((state: RootState) => state.user.name);
   const cart = useSelector((state: RootState) => state.cart.items);
-
+  // pogledaj u redux useSelector
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const totalPrice = cart.reduce(
