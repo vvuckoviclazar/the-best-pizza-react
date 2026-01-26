@@ -6,24 +6,24 @@ import type { RootState } from "./store";
 import Btn from "./components/btn.tsx";
 import { GoArrowRight } from "react-icons/go";
 import { useState } from "react";
+import {
+  selectCartItems,
+  selectTotalItems,
+  selectCartPrice,
+} from "./features/cartSlice";
 
 function App() {
   const name = useSelector((state: RootState) => state.user.name);
-  const cart = useSelector((state: RootState) => state.cart.items);
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
-  // pogledaj u redux useSelector
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
-  const totalPrice = cart.reduce(
-    (sum, item) => sum + item.pizza.unitPrice * item.quantity,
-    0
-  );
+  const cart = useSelector(selectCartItems);
+  const totalItems = useSelector(selectTotalItems);
+  const totalPrice = useSelector(selectCartPrice);
 
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
     if (!search.trim()) return;
-    navigate(`/order/${search}`);
+    navigate(`/${search}`);
   }
 
   return (

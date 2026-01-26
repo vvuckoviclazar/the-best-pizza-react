@@ -63,7 +63,7 @@ export default function FinishOrderPage() {
 
     dispatch(clearCart());
 
-    navigate(`/order/${orderId}`);
+    navigate(`/${orderId}`);
 
     setCustomer("");
     setPhone("");
