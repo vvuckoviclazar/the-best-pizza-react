@@ -1,17 +1,28 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import Btn from "../components/btn";
 
 export default function OrderedPizzasPage() {
   const { orderId } = useParams();
   const [order, setOrder] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function fetchOrder() {
       setLoading(true);
+      setError(false);
       const res = await fetch(
         `https://react-fast-pizza-api.onrender.com/api/order/${orderId}`
       );
+
+      if (!res.ok) {
+        setError(true);
+        setLoading(false);
+        return;
+      }
+
       const data = await res.json();
       setOrder(data.data);
       setLoading(false);
@@ -20,6 +31,18 @@ export default function OrderedPizzasPage() {
   }, [orderId]);
 
   if (loading) return <h1 className="loading">|||</h1>;
+
+  if (error) {
+    return (
+      <div className="order-error">
+        <p className="error-p">Something went wrong 😢</p>
+        <p className="error-p">Couldn't find order #{orderId}</p>
+        <Btn className="go-back-btn" onClick={() => navigate(-1)}>
+          ← Go back
+        </Btn>
+      </div>
+    );
+  }
 
   const pizzasPrice = order.cart.reduce(
     (sum: number, item: any) => sum + item.totalPrice,

@@ -24,6 +24,7 @@ function App() {
     e.preventDefault();
     if (!search.trim()) return;
     navigate(`/${search}`);
+    setSearch("");
   }
 
   return (
