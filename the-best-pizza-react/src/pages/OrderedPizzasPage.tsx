@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Btn from "../components/btn";
+import { getSingleOrder } from "../api/getSingleOrder";
 
 export default function OrderedPizzasPage() {
   const { orderId } = useParams();
@@ -12,21 +13,18 @@ export default function OrderedPizzasPage() {
   useEffect(() => {
     async function fetchOrder() {
       setLoading(true);
-      setError(false);
-      const res = await fetch(
-        `https://react-fast-pizza-api.onrender.com/api/order/${orderId}`
-      );
 
-      if (!res.ok) {
+      try {
+        const order = await getSingleOrder(orderId!);
+        setOrder(order);
+        setError(false);
+      } catch {
         setError(true);
+      } finally {
         setLoading(false);
-        return;
       }
-
-      const data = await res.json();
-      setOrder(data.data);
-      setLoading(false);
     }
+
     fetchOrder();
   }, [orderId]);
 

@@ -6,6 +6,7 @@ import Label from "../components/label";
 import Btn from "../components/btn";
 import { clearCart } from "../features/cartSlice";
 import { useNavigate } from "react-router-dom";
+import { createOrder } from "../api/createOrder";
 
 export default function FinishOrderPage() {
   const dispatch = useDispatch<AppDispatch>();
@@ -49,17 +50,8 @@ export default function FinishOrderPage() {
       cart: cartForApi,
     };
 
-    const res = await fetch(
-      "https://react-fast-pizza-api.onrender.com/api/order",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newOrder),
-      }
-    );
-
-    const data = await res.json();
-    const orderId = data.data.id;
+    const data = await createOrder(newOrder);
+    const orderId = data.id;
 
     dispatch(clearCart());
 

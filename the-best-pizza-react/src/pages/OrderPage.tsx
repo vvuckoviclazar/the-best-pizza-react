@@ -10,6 +10,7 @@ import {
   type Pizza,
 } from "../features/cartSlice";
 import { setLoading } from "../features/uiSlice";
+import { fetchProducts } from "../api/fetchProducts";
 
 export default function OrderPage() {
   const [pizzas, setPizzas] = useState<Pizza[]>([]);
@@ -40,11 +41,8 @@ export default function OrderPage() {
     async function fetchPizzas() {
       dispatch(setLoading(true));
       try {
-        const res = await fetch(
-          "https://react-fast-pizza-api.onrender.com/api/menu"
-        );
-        const response = await res.json();
-        setPizzas(response.data);
+        const pizzas = await fetchProducts();
+        setPizzas(pizzas);
       } finally {
         dispatch(setLoading(false));
       }
