@@ -16,6 +16,7 @@ export default function FinishOrderPage() {
   const [address, setAddress] = useState("");
   const [priority, setPriority] = useState(false);
   const navigate = useNavigate();
+  const [formError, setFormError] = useState<string | null>(null);
 
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition(async (pos) => {
@@ -33,6 +34,7 @@ export default function FinishOrderPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setFormError(null);
 
     const cartForApi = cart.map((item) => ({
       pizzaId: item.pizza.id,
@@ -50,12 +52,15 @@ export default function FinishOrderPage() {
       cart: cartForApi,
     };
 
-    const data = await createOrder(newOrder);
-    const orderId = data.id;
+    try {
+      const data = await createOrder(newOrder);
+      const orderId = data.id;
 
-    dispatch(clearCart());
-
-    navigate(`/${orderId}`);
+      dispatch(clearCart());
+      navigate(`/${orderId}`);
+    } catch (err: any) {
+      setFormError(err.message);
+    }
 
     setCustomer("");
     setPhone("");
@@ -116,7 +121,7 @@ export default function FinishOrderPage() {
           GET POSITION
         </Btn>
       </div>
-
+      {formError && <p className="form-error">{formError}</p>}
       <div className="check-input-div">
         <Input
           className="check-input"

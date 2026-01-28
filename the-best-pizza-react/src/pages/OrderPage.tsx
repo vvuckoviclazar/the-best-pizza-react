@@ -53,11 +53,6 @@ export default function OrderPage() {
 
   if (loading) return <h1 className="loading">|||</h1>;
 
-  const totalPrice = cart.reduce(
-    (sum, item) => sum + item.pizza.unitPrice * item.quantity,
-    0
-  );
-
   return (
     <>
       <section className="pizza-orders-section">

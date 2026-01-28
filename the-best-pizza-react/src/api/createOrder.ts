@@ -16,10 +16,11 @@ export async function createOrder(order: CreateOrderInput) {
     }
   );
 
+  const data = await res.json();
+
   if (!res.ok) {
-    throw new Error("Failed to create order");
+    throw new Error(data.message);
   }
 
-  const data = await res.json();
   return data.data;
 }
