@@ -6,7 +6,7 @@ import Label from "../components/label";
 import Btn from "../components/btn";
 import { clearCart } from "../features/cartSlice";
 import { useNavigate } from "react-router-dom";
-import { createOrder } from "../api/createOrder";
+import { createOrder, ValidationError } from "../api/createOrder";
 
 export default function FinishOrderPage() {
   const dispatch = useDispatch<AppDispatch>();
@@ -59,7 +59,11 @@ export default function FinishOrderPage() {
       dispatch(clearCart());
       navigate(`/${orderId}`);
     } catch (err: any) {
-      setFormError(err.message);
+      if (err instanceof ValidationError) {
+        setFormError(err.message);
+      } else {
+        setFormError("Upps something went wrong!");
+      }
     }
 
     setCustomer("");
